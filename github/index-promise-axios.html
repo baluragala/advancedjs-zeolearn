@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Github Browser</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.3/axios.min.js"></script>
+    <style>
+        input[type='button'] {
+            margin-top: 5px;
+            width: 120px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var getButton = document.getElementById('getRepos');
+            var userNameText = document.getElementById('username');
+            getButton.addEventListener('click', function (event) {
+                var reposPromise = axios.get("https://api.github.com/users/" + userNameText.value + "/repos?access_token=e1c3e246e2340bde5daed68cfdc37b57c2bcfd5e");
+                reposPromise
+                    .then(function (result) {
+                        makeReposList(result.data);
+                        updateCommits(result.data);
+                    })
+                    .catch(function (err) {
+                        console.log(err)
+                        alert('Unable to get details');
+                    })
+
+            })
+        }
+
+        /*
+         <ul class="list-group">
+         <li class="list-group-item">First item</li>
+         <li class="list-group-item">Second item</li>
+         <li class="list-group-item">Third item</li>
+         </ul>
+         */
+        function makeReposList(repos) {
+
+            var reposPlaceholder = document.getElementById('repos');
+            var ul = document.createElement('ul');
+            ul.setAttribute('class', 'list-group');
+            for (index in repos) {
+                var repo = repos[index];
+                var li = document.createElement('li');
+                li.setAttribute('class', 'list-group-item');
+                li.setAttribute('id', 'li-' + repo.name);
+                li.innerHTML = repo.name;
+                ul.appendChild(li);
+            }
+            reposPlaceholder.appendChild(ul);
+        }
+
+        //get commits :
+        // /repos/:owner/:repo/git/commits/:sha
+
+        function updateCommits(repos) {
+            for (index in repos) {
+                var repo = repos[index];
+                (function getCommit() {
+                    var repoName = repo.name;
+                    var url = 'https://api.github.com/repos/' + repo.owner.login + '/' + repoName + '/commits?access_token=e1c3e246e2340bde5daed68cfdc37b57c2bcfd5e';
+                    var commitsPromise = axios.get(url);
+                    commitsPromise
+                        .then(function (result) {
+                            console.log(result);
+                            var li = document.getElementById('li-' + repoName);
+                            setTimeout(function () {
+                                li.innerText += ' ( ' + result.data.length + ' )';
+                            },300)
+
+                        })
+                        .catch(function (err) {
+
+                        })
+
+                })();
+
+            }
+
+        }
+
+
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <h2>Github Source code Browser</h2>
+    <p>This sample application get the details of a user from github like repos, commits, issues. The solution uses
+        html5, bootstrap, JS, axios(http client library) , callbacks, promises </p>
+    <form>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="username">Github Username:</label>
+                    <input type="text" class="form-control" id="username">
+                    <input type="button" class="btn btn-success" value="Get" id="getRepos"/>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div id="repos"></div>
+</div>
+
+</body>
+</html>

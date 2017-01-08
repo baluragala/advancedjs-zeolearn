@@ -56,3 +56,7 @@ jspm_packages
 .idea/modules.xml
 .idea/workspace.xml
 
+.DS_Store
+.idea/jsLibraryMappings.xml
+.idea/misc.xml
+/secret.dat

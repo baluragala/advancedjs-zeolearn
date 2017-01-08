@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Learning DOM API </title>
+    <script>
+        // run this function when the document is loaded
+        window.onload = function() {
+
+            // create a couple of elements in an otherwise empty HTML page
+            var heading = document.createElement("h1");
+            var heading_text = document.createTextNode("Hola, !! DOM API - you work like a charm !!!");
+            heading.appendChild(heading_text);
+            document.body.appendChild(heading);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

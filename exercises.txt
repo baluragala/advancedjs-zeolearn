@@ -1,0 +1,25 @@
+- Write a program which takes string as input and returns the result of string random operation called on each time
+- Write a number guess function which take input between 1-10 and returns WIN !! if the random number generated matches to input
+or BETTER LUCK NEXT TIME !! if input do not match
+Date:
+-----
+Write a function that displays the date in the following format :
+
+HH:MI:SS AM/PM
+
+Write a function that displays the date based on the format type :
+
+Define the format types as below :
+
+Write a function to validate the given input is date or not - checkDate
+Write a JavaScript function to get the number of days in a month - getMonthDayCount
+
+Functions:
+----------
+How old are you - write a function that calculate the age given an input birthYear - calculateAge
+How many cups of tea you need for your lifetime of 100 years? - calculateSuppluy
+Write a JavaScript function that generates all combinations of a string - wordCombinations
+Write a function to sort the string alpabatically in asceding order - sortString
+Write a JavaScript function that accepts a string as a parameter and converts the first letter of each word of the string in upper case - captialize
+Write a JavaScript function that accepts a string as a parameter and find the longest word within the string - longestWord
+Write a JavaScript function which accepts an argument and returns the type - getType
