@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Observer-Pattern</title>
+    <script>
+        window.onload = function () {
+            function Counter() {
+                this.observers = [];
+                this.count = 0;
+            }
+
+            Counter.prototype.increment = function (amount) {
+                this.count += amount || 1;
+                this.notify({ count: this.count });
+            };
+
+            Counter.prototype.addObserver = function (observer) {
+                this.observers.push(observer);
+            };
+
+            Counter.prototype.notify = function (data) {
+                this.observers.forEach(function (observer) {
+                    observer.call(null, data);
+                });
+            };
+
+            // Create a new instance.
+            var counter = new Counter();
+
+            // Add an observer.
+            counter.addObserver(function () {
+                document.getElementById('myOutput').innerHTML = "Count: " + counter.count;
+            });
+
+            document.getElementById('myOutput').addEventListener("click", function () {
+                counter.increment();
+            });
+        }
+
+
+    </script>
+    <style>
+        button {
+            font-size: xx-large;
+
+        }
+        body {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div>
+   <div id="myOutput">Count : 0</div>
+</div>
+</body>
+</html>
