@@ -1,12 +1,14 @@
 /**
- * Created by moksha on 08/01/17.
+ * Created by moksha on 10/01/17.
  */
 
-// go and get the milk from a shop
-// boil the milk
-// mix sugar and coffee powder
+//https://jsonplaceholder.typicode.com/
+
+
+
 
 var goGetMilk = function () {
+    console.log('getting milk')
     return new Promise(function (resolve, reject) {
         setTimeout(
             function () {
@@ -21,6 +23,7 @@ var goGetMilk = function () {
 
 
 var boilMilk = function (input) {
+    console.log('boiling milk')
     return new Promise(function (resolve, reject) {
         setTimeout(
             function () {
@@ -35,9 +38,11 @@ var boilMilk = function (input) {
 }
 
 var mixSugarAndCoffeePowder = function (input) {
+    console.log('final steps')
     return new Promise(function (resolve, reject) {
         setTimeout(
             function () {
+                console.log(input)
                 console.log('Sugar Added');
                 console.log('coffee powder Added');
                 reject('Bad Coffee!! Yaakkk')
@@ -47,9 +52,8 @@ var mixSugarAndCoffeePowder = function (input) {
     });
 }
 
-goGetMilk()
-    .then(boilMilk)
-    .then(mixSugarAndCoffeePowder)
-    .catch(function (err) {
-        console.log(err)
-    })
+function* makeCoffee() {
+    let getMilk = yield goGetMilk();
+    let boiledMilk = yield boilMilk(getMilk);
+    let coffee = yield mixSugarAndCoffeePowder(boiledMilk);
+}

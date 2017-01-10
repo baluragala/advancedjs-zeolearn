@@ -23,3 +23,10 @@ Write a function to sort the string alpabatically in asceding order - sortString
 Write a JavaScript function that accepts a string as a parameter and converts the first letter of each word of the string in upper case - captialize
 Write a JavaScript function that accepts a string as a parameter and find the longest word within the string - longestWord
 Write a JavaScript function which accepts an argument and returns the type - getType
+
+Template Strings:
+----------------
+use conditional in template string
+create an object mobile that has model, make, frontCamera, rearCamera, doubleRear, bluetooth, audioJack. Create a templated
+html string and load the objects into html body. Bonus use styles
+

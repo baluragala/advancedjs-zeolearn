@@ -4,6 +4,10 @@
 
 var Animal = function (name) {
     this.name = name;
+    this.shout = function () {
+
+        console.log(this);
+    }
 }
 
 Animal.prototype.eats = function () {

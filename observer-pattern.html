@@ -21,7 +21,7 @@
 
             Counter.prototype.notify = function (data) {
                 this.observers.forEach(function (observer) {
-                    observer.call(null, data);
+                    observer(data);
                 });
             };
 
@@ -29,8 +29,8 @@
             var counter = new Counter();
 
             // Add an observer.
-            counter.addObserver(function () {
-                document.getElementById('myOutput').innerHTML = "Count: " + counter.count;
+            counter.addObserver(function (data) {
+                document.getElementById('myOutput').innerHTML = "Count: " + data.count;
             });
 
             document.getElementById('myOutput').addEventListener("click", function () {
