@@ -15,7 +15,5 @@ var john = new Person("john",22);
 var james = new Person("james",25);
 
 john.newProp = "newProp";
-john.newMethod = function () {
 
-}
 

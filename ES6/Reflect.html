@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reflect API</title>
+</head>
+<body>
+<script>
+    var d = Reflect.construct(Date, [1776, 6, 4]);
+    d instanceof Date; // true
+    d.getFullYear(); // 1776
+
+    function someConstructor() {}
+    var result = Reflect.construct(Array, [], someConstructor);
+
+    Reflect.getPrototypeOf(result); // someConstructor.prototype
+    Array.isArray(result); // true
+
+</script>
+</body>
+</html>

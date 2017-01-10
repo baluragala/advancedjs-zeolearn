@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var A = function () {
+        this.x = function () { console.log('A'); };
+    };
+
+    A.prototype.y = function(  ) {
+        this.x = function() { console.log( 'I am from proto' ); }
+    };
+
+    var a1 = new A();
+    var a2 = new A();
+    a1.x();
+    a2.x();
+    a1.x = function () {
+        console.log('I am the change');
+    };
+
+    /*a1.x();
+    a2.x()*/
+</script>
+</body>
+</html>

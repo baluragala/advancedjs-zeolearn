@@ -1,0 +1,13 @@
+PreRequisite:
+------------
+node
+npm
+
+install mocha globally :
+sudo npm install -g mocha
+
+install mocha and chai locally as dev dep:
+npm install mocha chai --save-dev
+
+
+article and code reference : https://www.sitepoint.com/unit-test-javascript-mocha-chai/

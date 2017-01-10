@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object.freeze</title>
+</head>
+<body>
+<script>
+    'use strict';
+    const obj = {name: 'abc'};
+    console.log(Object.getOwnPropertyDescriptor(obj, 'name'));
+    let o = Object.freeze(obj);
+    console.log(Object.getOwnPropertyDescriptor(o, 'name'));
+    o.name = 'aga';
+</script>
+</body>
+</html>

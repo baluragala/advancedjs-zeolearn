@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XmlHttpRequest</title>
+</head>
+<body>
+<div id="result"></div>
+<script>
+    function loadXMLDoc() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            console.log(this);
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("result").innerHTML =
+                    this.responseText;
+            }
+        };
+        xhttp.open("GET", "https://jsonplaceholder.typicode.com/users", true);
+        xhttp.send();
+    }
+    loadXMLDoc();
+
+    /*
+    XHR mess
+
+     // Just getting XHR is a mess!
+     if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+     request = new XMLHttpRequest();
+     } else if (window.ActiveXObject) { // IE
+     try {
+     request = new ActiveXObject('Msxml2.XMLHTTP');
+     }
+     catch (e) {
+     try {
+     request = new ActiveXObject('Microsoft.XMLHTTP');
+     }
+     catch (e) {}
+     }
+     }
+
+     // Open, send.
+     request.open('GET', 'https://davidwalsh.name/ajax-endpoint', true);
+     request.send(null);
+
+     */
+</script>
+</body>
+</html>

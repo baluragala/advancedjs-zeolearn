@@ -1,5 +1,5 @@
 var intNumber=42;
-var octalNumber=010;
+var octalNumber=0o10;
 var hexDecimalNumber=0x10;
 var a=10;
 var b=Number(10);

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fetch</title>
+</head>
+<body>
+<div class="users">
+    <ol></ol>
+</div>
+<script>
+    let usersList = document.querySelector('.users ol');
+    let html;
+    fetch('https://jsonplaceholder.typicode.com/users')
+        .then((response) => response.json())
+        .then((users) => {
+            usersList.innerHTML = (users.map(user => `<li><a href="https://jsonplaceholder.typicode.com/posts?userid=${user.id}">${user.name}</a></li>`)).toString().replace(/,/g, "");
+        })
+        .catch(function (err) {
+            console.log(err)
+        });
+
+</script>
+</body>
+</html>
