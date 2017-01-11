@@ -24,7 +24,6 @@ var someString = new String("hi");          // need to construct a String object
 someString[Symbol.iterator] = function() {
     return { // this is the iterator object, returning a single element, the string "bye"
         next: function() {
-            console.log(this)
             if (this._first) {
                 this._first = false;
                 return { value: "bye", done: false };

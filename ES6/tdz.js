@@ -5,5 +5,5 @@
 console.log(firstName);
 var firstName;
 
-let lastName1;
-console.log(lastName1);
+console.log(lastName);
+let lastName;

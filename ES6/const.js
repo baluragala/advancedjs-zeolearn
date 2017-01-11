@@ -8,7 +8,4 @@ const Car = {
     model: 'Celerio'
 };
 
-let car1 = Object.freeze(Car);
-let car2 = car1;
-
-car1= {};
+const wes = Object.freeze(Car);

@@ -1,7 +1,7 @@
 /**
  * Created by moksha on 10/01/17.
  */
-var car = {make:make, model:model, year:year, print:()=>{}};
+var car = {make, model, year};
 
 function Car(make, model, year) {
     this.make = make;
@@ -35,6 +35,5 @@ var car1 = new Car("Eagle", "Talon TSi", 1993, rand);
 var car2 = new Car("Nissan", "300ZX", 1992, ken);
 
 //Object.create
-var car3 = Object.create(Car.prototype,{additionalProps})
 
 

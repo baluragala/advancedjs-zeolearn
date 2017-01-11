@@ -14,12 +14,11 @@
 <body>
 <script>
     const lines = document.querySelectorAll('.lines p');
-    //console.dir(lines);
+    console.dir(lines);
     const linesArray = Array.from(lines, line => line.textContent);
-    //console.dir(linesArray);
+    console.dir(linesArray);
 
     function sumAll() {
-        console.dir(arguments);
         const nums = Array.from(arguments);
         return nums.reduce((prev, next) => prev + next, 0);
     }

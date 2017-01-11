@@ -4,6 +4,8 @@
 
 //var p = new Proxy(target, handler);
 
+console.log(p.a, p.b); // 1, undefined
+console.log('c' in p, p.c); // false, 37
 
 const dog = { name: 'Snippy', age: 6 };
 const dogProxy = new Proxy(dog, {

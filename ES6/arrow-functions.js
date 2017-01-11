@@ -34,12 +34,7 @@ var materialsLength3 = materials.map(material => material.length);
 
 var multiply = (x, y) => x * y;
 
-
 var wish = user => `Hello ${user}`;
-
-var wish = function (user) {
-    return `Hello ${user}`;
-}
 
 var whoAreYou = () => `Arrow function with no params`;
 
@@ -60,20 +55,3 @@ let divisibleBy3 = numbers.filter(function (number) {
 })
 
 let divisibleBy2 = numbers.filter((number) => number % 2 == 0);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

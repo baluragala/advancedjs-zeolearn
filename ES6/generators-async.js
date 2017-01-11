@@ -5,6 +5,8 @@
 //https://jsonplaceholder.typicode.com/
 
 
+
+
 var goGetMilk = function () {
     console.log('getting milk')
     return new Promise(function (resolve, reject) {
@@ -50,10 +52,8 @@ var mixSugarAndCoffeePowder = function (input) {
     });
 }
 
-co(
-    function* makeCoffee() {
-        let getMilk = yield goGetMilk();
-        let boiledMilk = yield boilMilk(getMilk);
-        let coffee = yield mixSugarAndCoffeePowder(boiledMilk);
-    });
-
+function* makeCoffee() {
+    let getMilk = yield goGetMilk();
+    let boiledMilk = yield boilMilk(getMilk);
+    let coffee = yield mixSugarAndCoffeePowder(boiledMilk);
+}

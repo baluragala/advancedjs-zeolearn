@@ -9,6 +9,9 @@
     var A = function () {
         this.x = function () { console.log('A'); };
     };
+    A.prototype.updateX = function( value ) {
+        this.x = function() { console.log( value ); }
+    };
 
     A.prototype.y = function(  ) {
         this.x = function() { console.log( 'I am from proto' ); }
